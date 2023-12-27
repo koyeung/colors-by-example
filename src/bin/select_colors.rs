@@ -24,7 +24,7 @@ struct Cli {
     #[arg(long, requires = "chroma")]
     saturate: Option<bool>,
 
-    /// Opposite to reference hue
+    /// Select opposite hue to the reference one
     #[arg(long, requires = "hue")]
     opposite: bool,
 
@@ -42,12 +42,12 @@ struct Cli {
     #[arg(long, default_value_t=String::from("The Quick Brown Fox Jumps Over the Lazy Dog"))]
     sample: String,
 
-    /// Test color as background of sample sentence
+    /// Whether to show sample sentence using selected colors as background
     #[arg(long)]
     background: bool,
 
-    /// Override alternative fore/background color
-    #[arg(long)]
+    /// Force using color index as fore/background when selected colors are used as back/foreground
+    #[arg(long, value_name = "ALT_COLOR")]
     alt: Option<u8>,
 }
 
@@ -67,11 +67,11 @@ struct ColorFilter {
     #[arg(long, short = 'C', value_name = "CHROMA_COLOR")]
     chroma: Option<u8>,
 
-    /// Color index of grays
+    /// All gray colors
     #[arg(long, short = 'G')]
     gray: bool,
 
-    /// Base16 colors
+    /// Base16 (4-bit) colors
     #[arg(long)]
     base16: bool,
 }
