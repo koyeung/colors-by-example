@@ -7,15 +7,15 @@
 /// Different platform has different palette.
 /// Actual values are configurable in terminal emulators.
 #[derive(Copy, Clone, Eq, PartialEq, Hash, Debug)]
-pub struct Palette(pub [[u8; 3]; 16]);
+pub struct Base16(pub [[u8; 3]; 16]);
 
-impl Palette {
+impl Base16 {
     pub fn new() -> Self {
-        Palette::default()
+        Base16::default()
     }
 }
 
-impl Default for Palette {
+impl Default for Base16 {
     fn default() -> Self {
         DEFAULT
     }
@@ -31,7 +31,7 @@ pub use WIN10_CONSOLE as DEFAULT;
 pub use WIN10_CONSOLE as DEFAULT;
 
 // Values from Terminal.app
-pub const TERMINAL_APP: Palette = Palette([
+pub const TERMINAL_APP: Base16 = Base16([
     // standard colors
     [0, 0, 0],       // Black
     [153, 0, 0],     // Red
@@ -53,7 +53,7 @@ pub const TERMINAL_APP: Palette = Palette([
 ]);
 
 // Values from: https://en.wikipedia.org/wiki/ANSI_escape_code#3-bit_and_4-bit
-pub const WIN10_CONSOLE: Palette = Palette([
+pub const WIN10_CONSOLE: Base16 = Base16([
     // standard colors
     [12, 12, 12],    // Black
     [197, 15, 31],   // Red
@@ -75,7 +75,7 @@ pub const WIN10_CONSOLE: Palette = Palette([
 ]);
 
 // Values from: https://en.wikipedia.org/wiki/ANSI_escape_code#3-bit_and_4-bit
-pub const XTERM: Palette = Palette([
+pub const XTERM: Base16 = Base16([
     // standard colors
     [0, 0, 0],       // Black
     [205, 0, 0],     // Red

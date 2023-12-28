@@ -300,12 +300,12 @@ fn dump(
             stdout,
             "{:#3} #{:02x}{:02x}{:02x} L: {:.4} chroma: {:.4} hue: {:4.0} {}",
             i,
-            srgb.r,
-            srgb.g,
-            srgb.b,
+            srgb.red,
+            srgb.green,
+            srgb.blue,
             oklch.l,
             oklch.chroma,
-            oklch.hue,
+            oklch.hue.into_degrees(),
             sample.color(foreground_color).on_color(background_color),
         )?;
     }

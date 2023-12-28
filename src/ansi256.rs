@@ -1,20 +1,18 @@
 //! ANSI-256 colors.
 
-use oklab::{srgb_to_oklab, Oklab};
-use rgb::RGB8;
+use palette::convert::FromColorUnclamped;
+use palette::{Oklch, SetHue, Srgb};
 
 use std::borrow::Borrow;
 use std::fmt;
 
+use crate::base16::Base16;
 use crate::color::Gray;
-use crate::oklch::Oklch;
-use crate::palette::Palette;
 
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub struct Ansi256Color {
     pub index: u8,
-    pub srgb: RGB8,
-    pub oklab: Oklab,
+    pub srgb: Srgb<u8>,
     pub oklch: Oklch,
 }
 
@@ -25,37 +23,34 @@ impl Ansi256Color {
     ///
     /// ```rust
     /// use approx::assert_abs_diff_eq;
-    /// use rgb::RGB8;
+    /// use palette::Srgb;
     /// # use colors_by_example::ansi256::Ansi256Color;
     ///
     /// let color = Ansi256Color::new(208, 255, 135, 0);
     ///
     /// assert_eq!(color.index, 208);
-    /// assert_eq!(color.srgb, RGB8::new(255, 135, 0));
+    /// assert_eq!(color.srgb, Srgb::new(255u8, 135, 0));
     ///
     /// // cross-check with https://ajalt.github.io/colormath/converter/
     /// // sRGB (0-255) 255, 135, 0
     /// // Oklab 0.74264, 0.10158, 0.15067
     /// // Oklch 0.74264, 0.18171, 56.01118
-    /// assert_abs_diff_eq!(color.oklab.l, 0.74264, epsilon = 0.0001);
-    /// assert_abs_diff_eq!(color.oklab.a, 0.10158, epsilon = 0.0001);
-    /// assert_abs_diff_eq!(color.oklab.b, 0.15067, epsilon = 0.0001);
     ///
     /// assert_abs_diff_eq!(color.oklch.l, 0.74264, epsilon = 0.0001);
     /// assert_abs_diff_eq!(color.oklch.chroma, 0.18171, epsilon = 0.0001);
-    /// assert_abs_diff_eq!(color.oklch.hue, 56.01118, epsilon = 0.0001);
+    /// assert_abs_diff_eq!(color.oklch.hue.into_inner(), 56.01118, epsilon = 0.0001);
     /// ```
     pub fn new(index: u8, r: u8, g: u8, b: u8) -> Self {
-        let srgb = RGB8::new(r, g, b);
-        let oklab = srgb_to_oklab(srgb);
-        let oklch = Oklch::from(oklab);
+        let srgb = Srgb::new(r, g, b);
 
-        Self {
-            index,
-            srgb,
-            oklab,
-            oklch,
+        let srgb_linear = srgb.into_linear::<f32>();
+
+        let mut oklch = Oklch::from_color_unclamped(srgb_linear);
+        if srgb.is_gray() {
+            oklch.set_hue(0.0);
         }
+
+        Self { index, srgb, oklch }
     }
 }
 
@@ -64,16 +59,14 @@ impl fmt::Display for Ansi256Color {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(
             f,
-            "index: {}, RGB8({}, {}, {}), Oklab(l:{}, a:{:.6}, b:{:.6}, chroma:{:.6}, hue:{:.6})",
+            "index: {}, srgb({},{},{}), Oklch: l:{} chroma:{} hue: {}",
             self.index,
-            self.srgb.r,
-            self.srgb.g,
-            self.srgb.b,
-            self.oklab.l,
-            self.oklab.a,
-            self.oklab.b,
+            self.srgb.red,
+            self.srgb.green,
+            self.srgb.blue,
+            self.oklch.l,
             self.oklch.chroma,
-            self.oklch.hue,
+            self.oklch.hue.into_inner(),
         )
     }
 }
@@ -96,25 +89,25 @@ impl Ansi256Colors {
     ///
     /// ```rust
     /// # use colors_by_example::ansi256::Ansi256Colors;
-    /// use colors_by_example::palette::DEFAULT;
+    /// use colors_by_example::base16::DEFAULT;
     ///
     /// let colors = Ansi256Colors::new(DEFAULT);
     /// assert_eq!(colors.as_slice().len(), 256);
     /// ```
-    pub fn new<T: Borrow<Palette>>(palette: T) -> Self {
+    pub fn new<T: Borrow<Base16>>(base16: T) -> Self {
         const CUBE: [u8; 6] = [0, 95, 135, 175, 215, 255];
         // start index of 6x6x6 cube
         const CUBE666_START: u8 = 16;
         // start index of grayscale
         const GRAYSCALE_START: u8 = 232;
 
-        let &Palette(palette) = palette.borrow();
+        let &Base16(base16) = base16.borrow();
 
         // chain ranges of:
         // 1. 0 - 15: platform dependent palette
         // 2. 16 - 231: cube 6x6x6 colors
         // 3. 232 - 255: grayscale
-        let rgb_channels = palette
+        let rgb_channels = base16
             .into_iter()
             .chain(((16u8 - CUBE666_START)..=(231u8 - CUBE666_START)).map(|x| {
                 [
@@ -152,31 +145,10 @@ impl Ansi256Colors {
     /// // Oklch 0.74264, 0.18171, 56.01118
     /// assert_abs_diff_eq!(oklch.l, 0.74264, epsilon = 0.0001);
     /// assert_abs_diff_eq!(oklch.chroma, 0.18171, epsilon = 0.0001);
-    /// assert_abs_diff_eq!(oklch.hue, 56.01118, epsilon = 0.0001);
+    /// assert_abs_diff_eq!(oklch.hue.into_inner(), 56.01118, epsilon = 0.0001);
     /// ```
     pub fn oklch_from_index(&self, index: u8) -> Oklch {
         self.colors[index as usize].oklch
-    }
-
-    /// Return Oklch from ANSI-256 index.
-    ///
-    /// # Examples
-    ///
-    /// ```rust
-    /// use approx::assert_abs_diff_eq;
-    /// # use colors_by_example::ansi256::Ansi256Colors;
-    ///
-    /// let colors = Ansi256Colors::default();
-    /// let oklab = colors.oklab_from_index(208);
-    ///
-    /// // cross-check with https://ajalt.github.io/colormath/converter/
-    /// // Oklab 0.74264, 0.10158, 0.15067
-    /// assert_abs_diff_eq!(oklab.l, 0.74264, epsilon = 0.0001);
-    /// assert_abs_diff_eq!(oklab.a, 0.10158, epsilon = 0.0001);
-    /// assert_abs_diff_eq!(oklab.b, 0.15067, epsilon = 0.0001);
-    /// ```
-    pub fn oklab_from_index(&self, index: u8) -> Oklab {
-        self.colors[index as usize].oklab
     }
 
     /// Return SRGB from ANSI-256 index.
@@ -184,15 +156,15 @@ impl Ansi256Colors {
     /// # Examples
     ///
     /// ```rust
-    /// use rgb::RGB8;
+    /// use palette::Srgb;
     /// # use colors_by_example::ansi256::Ansi256Colors;
     ///
     /// let colors = Ansi256Colors::default();
     /// let srgb = colors.srgb_from_index(208);
     ///
-    /// assert_eq!(srgb, RGB8::new(255, 135, 0));
+    /// assert_eq!(srgb, Srgb::new(255, 135, 0));
     /// ```
-    pub fn srgb_from_index(&self, index: u8) -> RGB8 {
+    pub fn srgb_from_index(&self, index: u8) -> Srgb<u8> {
         self.colors[index as usize].srgb
     }
 
@@ -210,7 +182,7 @@ impl AsRef<Ansi256Colors> for Ansi256Colors {
 
 impl Default for Ansi256Colors {
     fn default() -> Self {
-        Self::new(Palette::default())
+        Self::new(Base16::default())
     }
 }
 
@@ -226,7 +198,7 @@ pub const GRAY_INDEXES: [u8; 26] = [
 #[cfg(test)]
 mod tests {
 
-    use crate::palette::TERMINAL_APP;
+    use crate::base16::TERMINAL_APP;
 
     use super::*;
 
@@ -236,15 +208,15 @@ mod tests {
 
         // color in platform dependent palette
         let color2 = colors.srgb_from_index(2);
-        assert_eq!(color2, RGB8::new(0, 166, 0));
+        assert_eq!(color2, Srgb::new(0, 166, 0));
 
         // color in cube 6x6x6
         let color30 = colors.srgb_from_index(30);
-        assert_eq!(color30, RGB8::new(0, 135, 135));
+        assert_eq!(color30, Srgb::new(0, 135, 135));
 
         // color in grayscale range
         let color253 = colors.srgb_from_index(253);
-        assert_eq!(color253, RGB8::new(218, 218, 218));
+        assert_eq!(color253, Srgb::new(218, 218, 218));
     }
 
     #[test]
@@ -252,15 +224,15 @@ mod tests {
         let colors = Ansi256Colors::default();
 
         let black = colors.srgb_from_index(GRAY_INDEXES[0]);
-        assert_eq!(black, RGB8::new(0, 0, 0));
+        assert_eq!(black, Srgb::new(0, 0, 0));
 
         let white = colors.srgb_from_index(GRAY_INDEXES[25]);
-        assert_eq!(white, RGB8::new(255, 255, 255));
+        assert_eq!(white, Srgb::new(255, 255, 255));
 
         for i in 1..25 {
             let c = colors.srgb_from_index(GRAY_INDEXES[i]);
-            assert_eq!(c.r, c.g);
-            assert_eq!(c.g, c.b);
+            assert_eq!(c.red, c.green);
+            assert_eq!(c.green, c.blue);
         }
     }
 }
