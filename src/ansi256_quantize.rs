@@ -1,15 +1,15 @@
 //! Color with quantized values in colorspaces.
 
-use rgb::RGB8;
+use palette::Srgb;
 
 use std::ops::Index;
 
 use crate::ansi256::{Ansi256Colors, GRAY_INDEXES};
 use crate::color::Gray;
-use crate::oklch::OklchQuantized;
+use crate::oklch_quantize::OklchQuantized;
 
 /// Ansi-256 colors in quantized form.
-#[derive(Clone, Debug, Eq, PartialEq, Hash)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Ansi256QuantizedColors {
     colors: Vec<Ansi256QuantizedColor>,
 }
@@ -20,7 +20,7 @@ impl Ansi256QuantizedColors {
     /// # Examples
     ///
     /// ```rust
-    /// use rgb::RGB8;
+    /// use palette::Srgb;
     /// # use colors_by_example::ansi256_quantize::{Ansi256QuantizedColors, Ansi256QuantizedColor};
     /// # use colors_by_example::ansi256::Ansi256Colors;
     /// let colors = Ansi256QuantizedColors::new(Ansi256Colors::default());
@@ -30,7 +30,7 @@ impl Ansi256QuantizedColors {
     ///     color17,
     ///     Ansi256QuantizedColor {
     ///         index: 17,
-    ///         srgb: RGB8 { r: 0, g: 0, b: 95 },
+    ///         srgb: Srgb::new(0u8, 0, 95),
     ///         l: 55,
     ///         hue: 59,
     ///         chroma: 120,
@@ -89,13 +89,13 @@ impl Default for Ansi256QuantizedColors {
 }
 
 /// ANSI-256 color in quantized form with lightness level.
-#[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq)]
 pub struct Ansi256QuantizedColor {
     /// ANSI-256
     pub index: u8,
 
     /// SRGB
-    pub srgb: RGB8,
+    pub srgb: Srgb<u8>,
 
     /// Quantized perceived lightness
     pub l: u8,
@@ -169,7 +169,7 @@ fn lightness_level_bounds<T: Index<usize, Output = OklchQuantized>>(
 #[cfg(test)]
 mod tests {
 
-    use rgb::RGB8;
+    use palette::Srgb;
 
     use super::*;
 
@@ -184,7 +184,7 @@ mod tests {
             black,
             Ansi256QuantizedColor {
                 index: 16,
-                srgb: RGB8 { r: 0, g: 0, b: 0 },
+                srgb: Srgb::new(0u8, 0, 0),
                 l: 0,
                 hue: 0,
                 chroma: 0,
@@ -197,7 +197,7 @@ mod tests {
             gray1,
             Ansi256QuantizedColor {
                 index: 232,
-                srgb: RGB8 { r: 8, g: 8, b: 8 },
+                srgb: Srgb::new(8u8, 8, 8),
                 l: 34,
                 hue: 0,
                 chroma: 0,
@@ -210,11 +210,7 @@ mod tests {
             gray2,
             Ansi256QuantizedColor {
                 index: 233,
-                srgb: RGB8 {
-                    r: 18,
-                    g: 18,
-                    b: 18
-                },
+                srgb: Srgb::new(18u8, 18, 18),
                 l: 46,
                 hue: 0,
                 chroma: 0,
@@ -227,7 +223,7 @@ mod tests {
             color17,
             Ansi256QuantizedColor {
                 index: 17,
-                srgb: RGB8 { r: 0, g: 0, b: 95 },
+                srgb: Srgb::new(0u8, 0, 95),
                 l: 55,
                 hue: 59,
                 chroma: 120,
@@ -240,11 +236,7 @@ mod tests {
             gray3,
             Ansi256QuantizedColor {
                 index: 234,
-                srgb: RGB8 {
-                    r: 28,
-                    g: 28,
-                    b: 28
-                },
+                srgb: Srgb::new(28u8, 28, 28),
                 l: 57,
                 hue: 0,
                 chroma: 0,
@@ -257,11 +249,7 @@ mod tests {
             white,
             Ansi256QuantizedColor {
                 index: 231,
-                srgb: RGB8 {
-                    r: 255,
-                    g: 255,
-                    b: 255
-                },
+                srgb: Srgb::new(255u8, 255, 255),
                 l: 255,
                 hue: 0,
                 chroma: 0,
