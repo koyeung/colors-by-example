@@ -98,13 +98,13 @@ impl From<Oklch> for OklchQuantized {
         }: Oklch,
     ) -> Self {
         assert!(l >= 0.0);
-        assert!(l <= 255.0);
-        let l = (l * 255.0) as u8;
+        assert!(l <= 1.0);
+        let l = (l * 255.0).clamp(0.0, 255.0) as u8;
 
         assert!(chroma >= 0.0);
+        assert!(chroma <= ANSI256_MAX_CHROMA);
         let chroma = chroma / ANSI256_MAX_CHROMA * 255.0;
-        assert!(chroma <= 255.0);
-        let chroma = chroma as u8;
+        let chroma = chroma.clamp(0.0, 255.0) as u8;
 
         let hue = {
             if chroma == 0u8 {
@@ -113,10 +113,9 @@ impl From<Oklch> for OklchQuantized {
             } else {
                 let hue = hue_radian.mul_add(consts::FRAC_1_PI, 1.0);
                 assert!(hue >= 0.0);
-                let hue = hue / 2.0 * 255.0;
-                assert!(hue <= 255.0);
+                assert!(hue <= 2.0);
 
-                hue as u8
+                (hue / 2.0 * 255.0).clamp(0.0, 255.0) as u8
             }
         };
 
