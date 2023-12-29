@@ -12,10 +12,20 @@ Features:
 
 - Find colors with similar hue to color `148`, sort by hue: `select_colors -H148  |sort -g -k8`
 - Show more similar colors by using `--hue-extent`: `select_colors -H148 --hue-extent 5 |sort -g -k8``
+
+  ![Colors similar to color 148 by hue](/assets/images/h148.png)
+
 - Show colors opposite in hue to the reference color: `select_colors -H148 --hue-extent 5 --opposite|sort -g -k8`
 
+  ![Colors opposite to color 148 by hue](/assets/images/h148_opposite.png)
+
 - Colors with similar lightness to color `148`: `select_colors -L148|sort -g -k8`
-- Colors brighter than color `148`: `select_colors -L148 --brighten true |sort -g -k8`
+
+  ![Colors similar to color 148 by lightness](/assets/images/l148.png)
+
+- Colors similar or brighter than color `148`: `select_colors -L148 --brighten true |sort -g -k8`
+
+  ![Colors similar or brighter than color 148](/assets/images/l148_brighten.png)
 
 ## License
 
