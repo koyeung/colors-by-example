@@ -11,7 +11,7 @@ Features:
 ## Usage
 
 - Find colors with similar hue to color `148`, sort by hue: `select_colors -H148  |sort -g -k8`
-- Show more similar colors by using `--hue-extent`: `select_colors -H148 --hue-extent 5 |sort -g -k8``
+- Show more similar colors by using `--hue-extent`: `select_colors -H148 --hue-extent 5 |sort -g -k8`
 
   ![Colors similar to color 148 by hue](/assets/images/h148.png)
 
