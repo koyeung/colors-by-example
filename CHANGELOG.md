@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2](https://github.com/koyeung/colors-by-example/compare/v0.1.1...v0.1.2) - 2024-01-15
+
+### Other
+- *(ci)* Disable CARGO_INCREMENTAL
+
 ## [0.1.1](https://github.com/koyeung/colors-by-example/compare/v0.1.0...v0.1.1) - 2023-12-29
 
 ### Other
