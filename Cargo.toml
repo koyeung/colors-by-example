@@ -2,9 +2,13 @@
 name = "colors-by-example"
 version = "0.1.2"
 authors = ["YEUNG King On <koyeung@gmail.com>"]
-categories = []
+categories = [
+  "graphics",
+]
 edition = "2021"
-keywords = []
+keywords = [
+  "color",
+]
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/koyeung/colors-by-example/"
 rust-version = "1.74"
@@ -20,3 +24,6 @@ env_logger = "0.10.1"
 log = "0.4.20"
 owo-colors = "4.0.0"
 palette = "0.7.3"
+
+[lints.clippy]
+cargo = "warn"
