@@ -26,4 +26,6 @@ owo-colors = "4.0.0"
 palette = "0.7.3"
 
 [lints.clippy]
+# https://doc.rust-lang.org/cargo/reference/manifest.html#the-lints-section
+# https://doc.rust-lang.org/stable/clippy/index.html
 cargo = "warn"
