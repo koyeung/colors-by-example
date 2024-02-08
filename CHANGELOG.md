@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.6](https://github.com/koyeung/colors-by-example/compare/v0.1.5...v0.1.6) - 2024-02-08
+
+### Other
+- Setup cargo vet
+
 ## [0.1.5](https://github.com/koyeung/colors-by-example/compare/v0.1.4...v0.1.5) - 2024-02-04
 
 ### Other
