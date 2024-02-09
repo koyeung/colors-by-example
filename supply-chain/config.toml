@@ -28,30 +28,6 @@ url = "https://raw.githubusercontent.com/zcash/rust-ecosystem/main/supply-chain/
 [policy.colors-by-example]
 audit-as-crates-io = true
 
-[[exemptions.aho-corasick]]
-version = "1.1.2"
-criteria = "safe-to-deploy"
-
-[[exemptions.anstream]]
-version = "0.6.11"
-criteria = "safe-to-deploy"
-
-[[exemptions.anstyle]]
-version = "1.0.6"
-criteria = "safe-to-deploy"
-
-[[exemptions.anstyle-parse]]
-version = "0.2.3"
-criteria = "safe-to-deploy"
-
-[[exemptions.anstyle-query]]
-version = "1.0.2"
-criteria = "safe-to-deploy"
-
-[[exemptions.anstyle-wincon]]
-version = "3.0.2"
-criteria = "safe-to-deploy"
-
 [[exemptions.approx]]
 version = "0.5.1"
 criteria = "safe-to-deploy"
@@ -64,16 +40,8 @@ criteria = "safe-to-deploy"
 version = "4.4.18"
 criteria = "safe-to-deploy"
 
-[[exemptions.clap_builder]]
-version = "4.4.18"
-criteria = "safe-to-deploy"
-
 [[exemptions.clap_derive]]
 version = "4.4.7"
-criteria = "safe-to-deploy"
-
-[[exemptions.clap_lex]]
-version = "0.6.0"
 criteria = "safe-to-deploy"
 
 [[exemptions.env_logger]]
@@ -92,20 +60,8 @@ criteria = "safe-to-deploy"
 version = "2.1.0"
 criteria = "safe-to-deploy"
 
-[[exemptions.is-terminal]]
-version = "0.4.10"
-criteria = "safe-to-deploy"
-
 [[exemptions.libc]]
 version = "0.2.153"
-criteria = "safe-to-deploy"
-
-[[exemptions.linux-raw-sys]]
-version = "0.4.13"
-criteria = "safe-to-deploy"
-
-[[exemptions.memchr]]
-version = "2.7.1"
 criteria = "safe-to-deploy"
 
 [[exemptions.owo-colors]]
@@ -136,28 +92,8 @@ criteria = "safe-to-deploy"
 version = "0.11.2"
 criteria = "safe-to-deploy"
 
-[[exemptions.proc-macro2]]
-version = "1.0.78"
-criteria = "safe-to-deploy"
-
 [[exemptions.rand]]
 version = "0.8.5"
-criteria = "safe-to-deploy"
-
-[[exemptions.regex]]
-version = "1.10.3"
-criteria = "safe-to-deploy"
-
-[[exemptions.regex-automata]]
-version = "0.4.5"
-criteria = "safe-to-deploy"
-
-[[exemptions.regex-syntax]]
-version = "0.8.2"
-criteria = "safe-to-deploy"
-
-[[exemptions.rustix]]
-version = "0.38.31"
 criteria = "safe-to-deploy"
 
 [[exemptions.siphasher]]
@@ -168,14 +104,6 @@ criteria = "safe-to-deploy"
 version = "0.10.0"
 criteria = "safe-to-deploy"
 
-[[exemptions.syn]]
-version = "2.0.48"
-criteria = "safe-to-deploy"
-
-[[exemptions.termcolor]]
-version = "1.4.1"
-criteria = "safe-to-deploy"
-
 [[exemptions.winapi]]
 version = "0.3.9"
 criteria = "safe-to-deploy"
@@ -184,23 +112,11 @@ criteria = "safe-to-deploy"
 version = "0.4.0"
 criteria = "safe-to-deploy"
 
-[[exemptions.winapi-util]]
-version = "0.1.6"
-criteria = "safe-to-deploy"
-
 [[exemptions.winapi-x86_64-pc-windows-gnu]]
 version = "0.4.0"
 criteria = "safe-to-deploy"
 
 [[exemptions.windows-sys]]
-version = "0.52.0"
-criteria = "safe-to-deploy"
-
-[[exemptions.windows-targets]]
-version = "0.52.0"
-criteria = "safe-to-deploy"
-
-[[exemptions.windows_aarch64_gnullvm]]
 version = "0.52.0"
 criteria = "safe-to-deploy"
 
@@ -217,10 +133,6 @@ version = "0.52.0"
 criteria = "safe-to-deploy"
 
 [[exemptions.windows_x86_64_gnu]]
-version = "0.52.0"
-criteria = "safe-to-deploy"
-
-[[exemptions.windows_x86_64_gnullvm]]
 version = "0.52.0"
 criteria = "safe-to-deploy"
 
