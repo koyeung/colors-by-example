@@ -1,5 +1,6 @@
 name: cargo-vet
-on: [push, pull_request]
+# run only manually, otherwise, it fails on each version bump
+on: workflow_dispatch
 jobs:
   cargo-vet:
     name: Vet Dependencies
