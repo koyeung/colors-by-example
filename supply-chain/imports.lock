@@ -1,10 +1,6 @@
 
 # cargo-vet imports lock
 
-[[unpublished.colors-by-example]]
-version = "0.1.7"
-audited_as = "0.1.6"
-
 [[publisher.aho-corasick]]
 version = "1.1.2"
 when = "2023-10-09"
@@ -62,8 +58,8 @@ user-login = "epage"
 user-name = "Ed Page"
 
 [[publisher.colors-by-example]]
-version = "0.1.6"
-when = "2024-02-08"
+version = "0.1.8"
+when = "2024-02-09"
 user-id = 183447
 user-login = "koyeung"
 user-name = "YEUNG King On"
