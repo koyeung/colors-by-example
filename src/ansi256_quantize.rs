@@ -169,8 +169,6 @@ fn lightness_level_bounds<T: Index<usize, Output = OklchQuantized>>(
 #[cfg(test)]
 mod tests {
 
-    use palette::Srgb;
-
     use super::*;
 
     #[test]
