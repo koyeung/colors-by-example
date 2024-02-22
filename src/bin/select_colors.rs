@@ -3,7 +3,6 @@ use clap::Parser;
 use log::{debug, info, warn};
 use owo_colors::{AnsiColors, DynColors, OwoColorize, XtermColors};
 
-use std::cmp::{PartialEq, PartialOrd};
 use std::io::{self, Write};
 
 use colors_by_example::ansi256::Ansi256Colors;
