@@ -1,5 +1,5 @@
 use anyhow::Result;
-use clap::Parser;
+use clap::{Args, Parser};
 use log::{debug, info, warn};
 use owo_colors::{AnsiColors, DynColors, OwoColorize, XtermColors};
 
@@ -9,10 +9,10 @@ use colors_by_example::ansi256::Ansi256Colors;
 use colors_by_example::ansi256_quantize::Ansi256QuantizedColors;
 use colors_by_example::color::Gray;
 
-#[derive(Parser, Debug)]
+#[derive(Debug, Parser)]
 #[command(version)]
 struct Cli {
-    #[clap(flatten)]
+    #[command(flatten)]
     filter: ColorFilter,
 
     /// Show brighter (true) or darker (false) than reference lightness additionally
@@ -51,7 +51,7 @@ struct Cli {
 }
 
 // Organize filtering arguments in separate groups than other arguments
-#[derive(Parser, Debug)]
+#[derive(Debug, Args)]
 #[group(required = true, multiple = true)]
 struct ColorFilter {
     /// Color index for reference lightness
