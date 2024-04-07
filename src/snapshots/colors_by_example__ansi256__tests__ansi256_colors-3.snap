@@ -1,0 +1,7 @@
+---
+source: src/ansi256.rs
+expression: colors.srgb_from_index(253)
+---
+red: 218
+green: 218
+blue: 218

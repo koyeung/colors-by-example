@@ -28,17 +28,29 @@ url = "https://raw.githubusercontent.com/zcash/rust-ecosystem/main/supply-chain/
 [policy.colors-by-example]
 audit-as-crates-io = true
 
+[[exemptions.anyhow]]
+version = "1.0.81"
+criteria = "safe-to-deploy"
+
 [[exemptions.approx]]
 version = "0.5.1"
 criteria = "safe-to-deploy"
 
 [[exemptions.clap]]
-version = "4.5.0"
+version = "4.5.4"
 criteria = "safe-to-deploy"
 
 [[exemptions.clap_derive]]
-version = "4.5.0"
+version = "4.5.4"
 criteria = "safe-to-deploy"
+
+[[exemptions.console]]
+version = "0.15.8"
+criteria = "safe-to-run"
+
+[[exemptions.encode_unicode]]
+version = "0.3.6"
+criteria = "safe-to-run"
 
 [[exemptions.env_logger]]
 version = "0.10.2"
@@ -48,16 +60,28 @@ criteria = "safe-to-deploy"
 version = "1.0.0"
 criteria = "safe-to-deploy"
 
+[[exemptions.heck]]
+version = "0.5.0"
+criteria = "safe-to-deploy"
+
 [[exemptions.hermit-abi]]
-version = "0.3.5"
+version = "0.3.9"
 criteria = "safe-to-deploy"
 
 [[exemptions.humantime]]
 version = "2.1.0"
 criteria = "safe-to-deploy"
 
+[[exemptions.insta]]
+version = "1.38.0"
+criteria = "safe-to-run"
+
 [[exemptions.libc]]
 version = "0.2.153"
+criteria = "safe-to-deploy"
+
+[[exemptions.log]]
+version = "0.4.21"
 criteria = "safe-to-deploy"
 
 [[exemptions.owo-colors]]
@@ -65,15 +89,19 @@ version = "4.0.0"
 criteria = "safe-to-deploy"
 
 [[exemptions.palette]]
-version = "0.7.4"
+version = "0.7.5"
 criteria = "safe-to-deploy"
 
 [[exemptions.palette_derive]]
-version = "0.7.4"
+version = "0.7.5"
 criteria = "safe-to-deploy"
 
+[[exemptions.similar]]
+version = "2.5.0"
+criteria = "safe-to-run"
+
 [[exemptions.strsim]]
-version = "0.11.0"
+version = "0.11.1"
 criteria = "safe-to-deploy"
 
 [[exemptions.winapi]]
@@ -93,21 +121,21 @@ version = "0.52.0"
 criteria = "safe-to-deploy"
 
 [[exemptions.windows_aarch64_msvc]]
-version = "0.52.0"
+version = "0.52.4"
 criteria = "safe-to-deploy"
 
 [[exemptions.windows_i686_gnu]]
-version = "0.52.0"
+version = "0.52.4"
 criteria = "safe-to-deploy"
 
 [[exemptions.windows_i686_msvc]]
-version = "0.52.0"
+version = "0.52.4"
 criteria = "safe-to-deploy"
 
 [[exemptions.windows_x86_64_gnu]]
-version = "0.52.0"
+version = "0.52.4"
 criteria = "safe-to-deploy"
 
 [[exemptions.windows_x86_64_msvc]]
-version = "0.52.0"
+version = "0.52.4"
 criteria = "safe-to-deploy"

@@ -23,9 +23,12 @@ clap = { version = "4.4.11", features = ["derive"] }
 env_logger = "0.10.1"
 log = "0.4.20"
 owo-colors = "4.0.0"
-palette = { version = "0.7.3", default-features = false, features = ["std"] }
+palette = { version = "0.7.3", default-features = false, features = ["std", "serializing"] }
 
 [lints.clippy]
 # https://doc.rust-lang.org/cargo/reference/manifest.html#the-lints-section
 # https://doc.rust-lang.org/stable/clippy/index.html
 cargo = "warn"
+
+[dev-dependencies]
+insta = { version = "1.38.0", features = ["yaml"] }

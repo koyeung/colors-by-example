@@ -207,16 +207,13 @@ mod tests {
         let colors = Ansi256Colors::new(TERMINAL_APP);
 
         // color in platform dependent palette
-        let color2 = colors.srgb_from_index(2);
-        assert_eq!(color2, Srgb::new(0, 166, 0));
+        insta::assert_yaml_snapshot!(colors.srgb_from_index(2));
 
         // color in cube 6x6x6
-        let color30 = colors.srgb_from_index(30);
-        assert_eq!(color30, Srgb::new(0, 135, 135));
+        insta::assert_yaml_snapshot!(colors.srgb_from_index(30));
 
         // color in grayscale range
-        let color253 = colors.srgb_from_index(253);
-        assert_eq!(color253, Srgb::new(218, 218, 218));
+        insta::assert_yaml_snapshot!(colors.srgb_from_index(253));
     }
 
     #[test]
