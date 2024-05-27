@@ -32,3 +32,11 @@ cargo = "warn"
 
 [dev-dependencies]
 insta = { version = "1.38.0", features = ["yaml"] }
+
+[profile.dev]
+debug = 0
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
