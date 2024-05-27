@@ -1,3 +1,5 @@
+#![forbid(unsafe_code)]
+
 use anyhow::Result;
 use clap::{Args, Parser};
 use log::{debug, info, warn};

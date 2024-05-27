@@ -1,3 +1,5 @@
+#![forbid(unsafe_code)]
+
 pub mod ansi256;
 pub mod ansi256_quantize;
 pub mod base16;
