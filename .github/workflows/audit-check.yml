@@ -5,11 +5,13 @@ on:
     paths:
       - '**/Cargo.lock'
       - '**/Cargo.toml'
+      - 'deny.toml'
       - ".github/workflows/audit-check.yml"
   pull_request:
     paths:
       - '**/Cargo.lock'
       - '**/Cargo.toml'
+      - 'deny.toml'
       - ".github/workflows/audit-check.yml"
 
 env:
@@ -29,7 +31,7 @@ jobs:
     continue-on-error: ${{ matrix.checks == 'advisories' }}
 
     steps:
-    - uses: actions/checkout@v4
-    - uses: EmbarkStudios/cargo-deny-action@v1
-      with:
-        command: check ${{ matrix.checks }}
+      - uses: actions/checkout@v4
+      - uses: EmbarkStudios/cargo-deny-action@v2
+        with:
+          command: check ${{ matrix.checks }}
