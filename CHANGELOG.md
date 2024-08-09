@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.26](https://github.com/koyeung/colors-by-example/compare/v0.1.25...v0.1.26) - 2024-08-09
+
+### Other
+- Upgrade log
+
 ## [0.1.25](https://github.com/koyeung/colors-by-example/compare/v0.1.24...v0.1.25) - 2024-08-08
 
 ### Other
