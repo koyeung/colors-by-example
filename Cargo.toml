@@ -21,7 +21,7 @@ anyhow = "1.0.77"
 approx = "0.5.1"
 clap = { version = "4.4.11", features = ["derive"] }
 env_logger = "0.11.5"
-log = "0.4.20"
+log = "0.4.22"
 owo-colors = "4.0.0"
 palette = { version = "0.7.3", default-features = false, features = ["std", "serializing"] }
 
