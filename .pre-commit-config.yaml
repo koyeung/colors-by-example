@@ -31,12 +31,6 @@ repos:
         args: [--autofix]
       - id: trailing-whitespace
 
-  - repo: https://github.com/crate-ci/committed
-    rev: v1.0.20
-    hooks:
-      - id: committed
-        stages: [commit-msg]
-
   - repo: https://github.com/crate-ci/typos
     rev: v1.23.6
     hooks:
@@ -50,3 +44,8 @@ repos:
         args: ['--workspace']
       - id: clippy
         args: ['--workspace', '--', '-D', 'warnings']
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.29.0
+    hooks:
+      - id: commitizen
