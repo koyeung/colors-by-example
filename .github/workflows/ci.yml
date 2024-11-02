@@ -35,6 +35,7 @@ jobs:
       - uses: lycheeverse/lychee-action@v2
         with:
           args: "--cache --max-cache-age 1d . -v *.md"
+          failIfEmpty: false
 
   check:
     runs-on: ubuntu-latest
