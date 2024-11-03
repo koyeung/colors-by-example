@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.30](https://github.com/koyeung/colors-by-example/compare/v0.1.29...v0.1.30) - 2024-11-02
+
+### Other
+
+- fix lychee check
+
 ## [0.1.29](https://github.com/koyeung/colors-by-example/compare/v0.1.28...v0.1.29) - 2024-11-02
 
 ### Other
