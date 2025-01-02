@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.33](https://github.com/koyeung/colors-by-example/compare/v0.1.32...v0.1.33) - 2025-01-02
+
+### Other
+
+- Merge pull request [#58](https://github.com/koyeung/colors-by-example/pull/58) from koyeung/dependabot/github_actions/all-6f2f5f85fd
+
 ## [0.1.32](https://github.com/koyeung/colors-by-example/compare/v0.1.31...v0.1.32) - 2024-12-02
 
 ### Other
