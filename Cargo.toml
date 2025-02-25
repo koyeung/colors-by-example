@@ -5,13 +5,13 @@ authors = ["YEUNG King On <koyeung@gmail.com>"]
 categories = [
   "graphics",
 ]
-edition = "2021"
+edition = "2024"
 keywords = [
   "color",
 ]
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/koyeung/colors-by-example/"
-rust-version = "1.74"
+rust-version = "1.85"
 description = "Pick ansi-256 colors by examples"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -23,7 +23,10 @@ clap = { version = "4.4.11", features = ["derive"] }
 env_logger = "0.11.5"
 log = "0.4.22"
 owo-colors = "4.0.0"
-palette = { version = "0.7.3", default-features = false, features = ["std", "serializing"] }
+palette = { version = "0.7.3", default-features = false, features = [
+  "std",
+  "serializing",
+] }
 
 [lints.clippy]
 # https://doc.rust-lang.org/cargo/reference/manifest.html#the-lints-section
