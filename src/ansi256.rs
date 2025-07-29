@@ -226,8 +226,8 @@ mod tests {
         let white = colors.srgb_from_index(GRAY_INDEXES[25]);
         assert_eq!(white, Srgb::new(255, 255, 255));
 
-        for i in 1..25 {
-            let c = colors.srgb_from_index(GRAY_INDEXES[i]);
+        for &gi in GRAY_INDEXES.iter().take(25).skip(1) {
+            let c = colors.srgb_from_index(gi);
             assert_eq!(c.red, c.green);
             assert_eq!(c.green, c.blue);
         }
