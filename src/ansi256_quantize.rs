@@ -256,7 +256,7 @@ mod tests {
         );
 
         for (idx, c) in quantized.as_slice().iter().enumerate() {
-            println!("{} {:?}", idx, c)
+            println!("{idx} {c:?}")
         }
     }
 }
