@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.54](https://github.com/koyeung/colors-by-example/compare/v0.1.53...v0.1.54) - 2025-12-19
+
+### Other
+
+- add dependabot for cargo
+
 ## [0.1.53](https://github.com/koyeung/colors-by-example/compare/v0.1.52...v0.1.53) - 2025-12-18
 
 ### Other
