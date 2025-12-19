@@ -21,7 +21,7 @@ anyhow = "1.0.77"
 approx = "0.5.1"
 clap = { version = "4.4.11", features = ["derive"] }
 env_logger = "0.11.5"
-log = "0.4.22"
+log = "0.4.29"
 owo-colors = "4.0.0"
 palette = { version = "0.7.3", default-features = false, features = [
   "std",
@@ -34,4 +34,4 @@ palette = { version = "0.7.3", default-features = false, features = [
 cargo = "warn"
 
 [dev-dependencies]
-insta = { version = "1.38.0", features = ["yaml"] }
+insta = { version = "1.45.0", features = ["yaml"] }
