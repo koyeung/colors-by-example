@@ -15,6 +15,9 @@ jobs:
         uses: actions/checkout@v6
         with:
           filter: tree:0
+      - uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: "${{ github.workflow }}"
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
       - name: Run release-plz
