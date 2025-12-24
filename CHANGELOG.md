@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.57](https://github.com/koyeung/colors-by-example/compare/v0.1.56...v0.1.57) - 2025-12-24
+
+### Other
+
+- yamlfmt retain_line_breaks_single
+
 ## [0.1.56](https://github.com/koyeung/colors-by-example/compare/v0.1.55...v0.1.56) - 2025-12-24
 
 ### Other
