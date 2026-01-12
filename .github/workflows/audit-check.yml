@@ -1,20 +1,28 @@
 name: audit-check
+
 on:
   push:
     paths:
       - '**/Cargo.lock'
       - '**/Cargo.toml'
-      - 'deny.toml'
       - ".github/workflows/audit-check.yml"
+      - 'deny.toml'
   pull_request:
     paths:
       - '**/Cargo.lock'
       - '**/Cargo.toml'
-      - 'deny.toml'
       - ".github/workflows/audit-check.yml"
+      - 'deny.toml'
+
 env:
   CARGO_TERM_COLOR: always
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
+
   cargo-deny:
     runs-on: ubuntu-latest
     permissions:
@@ -23,9 +31,13 @@ jobs:
       matrix:
         checks:
           - advisories
-          - bans licenses
+          - bans
+          - licenses
+          - sources
+
     # Prevent sudden announcement of a new advisory from failing ci:
     continue-on-error: ${{ matrix.checks == 'advisories' }}
+
     steps:
       - uses: actions/checkout@v6
         with:
