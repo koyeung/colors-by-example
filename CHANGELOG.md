@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.62](https://github.com/koyeung/colors-by-example/compare/v0.1.61...v0.1.62) - 2026-01-12
+
+### Other
+
+- *(ci)* add cargo-deny sources check
+
 ## [0.1.61](https://github.com/koyeung/colors-by-example/compare/v0.1.60...v0.1.61) - 2026-01-08
 
 ### Other
