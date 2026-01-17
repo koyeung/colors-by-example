@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.65](https://github.com/koyeung/colors-by-example/compare/v0.1.64...v0.1.65) - 2026-01-17
+
+### Other
+
+- Merge pull request #112 from koyeung/dependabot/github_actions/all-1c3e72c61e
+
 ## [0.1.64](https://github.com/koyeung/colors-by-example/compare/v0.1.63...v0.1.64) - 2026-01-16
 
 ### Other
