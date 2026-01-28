@@ -34,4 +34,4 @@ palette = { version = "0.7.3", default-features = false, features = [
 cargo = "warn"
 
 [dev-dependencies]
-insta = { version = "1.46.0", features = ["yaml"] }
+insta = { version = "1.46.1", features = ["yaml"] }
