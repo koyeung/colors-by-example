@@ -19,7 +19,7 @@ description = "Pick ansi-256 colors by examples"
 [dependencies]
 anyhow = "1.0.77"
 approx = "0.5.1"
-clap = { version = "4.5.54", features = ["derive"] }
+clap = { version = "4.5.55", features = ["derive"] }
 env_logger = "0.11.5"
 log = "0.4.29"
 owo-colors = "4.0.0"
