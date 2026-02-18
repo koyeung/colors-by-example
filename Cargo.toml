@@ -17,10 +17,10 @@ description = "Pick ansi-256 colors by examples"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-anyhow = "1.0.77"
+anyhow = "1.0.101"
 approx = "0.5.1"
-clap = { version = "4.5.57", features = ["derive"] }
-env_logger = "0.11.5"
+clap = { version = "4.5.58", features = ["derive"] }
+env_logger = "0.11.9"
 log = "0.4.29"
 owo-colors = "4.0.0"
 palette = { version = "0.7.3", default-features = false, features = [
