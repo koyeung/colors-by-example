@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.71](https://github.com/koyeung/colors-by-example/compare/v0.1.70...v0.1.71) - 2026-02-22
+
+### Other
+
+- replace .pre-commit-config.toml by prek.toml
+
 ## [0.1.70](https://github.com/koyeung/colors-by-example/compare/v0.1.69...v0.1.70) - 2026-02-18
 
 ### Other

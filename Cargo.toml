@@ -1,6 +1,6 @@
 [package]
 name = "colors-by-example"
-version = "0.1.70"
+version = "0.1.71"
 authors = ["YEUNG King On <koyeung@gmail.com>"]
 categories = [
   "graphics",
