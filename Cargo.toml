@@ -1,7 +1,6 @@
 [package]
 name = "colors-by-example"
 version = "0.1.76"
-authors = ["YEUNG King On <koyeung@gmail.com>"]
 categories = [
   "graphics",
 ]
@@ -11,15 +10,18 @@ keywords = [
 ]
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/koyeung/colors-by-example/"
-rust-version = "1.85"
+rust-version = "1.87"
 description = "Pick ansi-256 colors by examples"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[package.metadata.cargo-machete]
+ignored = ["approx"]  # used in cargo doc
+
 [dependencies]
 anyhow = "1.0.102"
 approx = "0.5.1"
-clap = { version = "4.5.60", features = ["derive"] }
+clap = { version = "4.6.0", features = ["derive"] }
 env_logger = "0.11.9"
 log = "0.4.29"
 owo-colors = "4.3.0"
@@ -31,7 +33,10 @@ palette = { version = "0.7.3", default-features = false, features = [
 [lints.clippy]
 # https://doc.rust-lang.org/cargo/reference/manifest.html#the-lints-section
 # https://doc.rust-lang.org/stable/clippy/index.html
-cargo = "warn"
+
+cargo = { level = "warn", priority = -1 }
+
+multiple_crate_versions = "allow"
 
 [dev-dependencies]
 insta = { version = "1.46.3", features = ["yaml"] }
