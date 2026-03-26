@@ -20,6 +20,7 @@ ignored = ["approx"]  # used in cargo doc
 
 [dependencies]
 anyhow = "1.0.102"
+approx = "0.5.1"
 clap = { version = "4.6.0", features = ["derive"] }
 env_logger = "0.11.9"
 log = "0.4.29"
