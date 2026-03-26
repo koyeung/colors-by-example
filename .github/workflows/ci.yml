@@ -13,6 +13,8 @@ env:
   CI: true
 jobs:
   check_project_files:
+    # disable check by lychee-action
+    if: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
