@@ -175,7 +175,6 @@ name = "colors-by-example"
 version = "0.1.76"
 dependencies = [
  "anyhow",
- "approx",
  "clap",
  "env_logger",
  "insta",
