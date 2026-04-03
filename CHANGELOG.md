@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.78](https://github.com/koyeung/colors-by-example/compare/v0.1.77...v0.1.78) - 2026-04-03
+
+### Other
+
+- replace dtolnay/rust-toolchain by rustup command
+
 ## [0.1.77](https://github.com/koyeung/colors-by-example/compare/v0.1.76...v0.1.77) - 2026-03-26
 
 ### Other
