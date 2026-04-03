@@ -1,7 +1,10 @@
 name: min-dep-vers
+
 on: [push, pull_request]
+
 permissions:
   contents: read
+
 env:
   CARGO_TERM_COLOR: always
   CARGO_INCREMENTAL: 0
@@ -24,7 +27,7 @@ jobs:
 
       - uses: mozilla-actions/sccache-action@v0.0.9
 
-      - uses: dtolnay/rust-toolchain@nightly
+      - run: rustup default nightly
 
       - uses: taiki-e/install-action@cargo-hack
       - uses: taiki-e/install-action@cargo-minimal-versions
