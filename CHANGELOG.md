@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.86](https://github.com/koyeung/colors-by-example/compare/v0.1.85...v0.1.86) - 2026-05-29
+
+### Other
+
+- prek auto-update
+
 ## [0.1.85](https://github.com/koyeung/colors-by-example/compare/v0.1.84...v0.1.85) - 2026-05-27
 
 ### Other
