@@ -1,6 +1,6 @@
 [package]
 name = "colors-by-example"
-version = "0.1.87"
+version = "0.1.88"
 categories = [
   "graphics",
 ]
