@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.89](https://github.com/koyeung/colors-by-example/compare/v0.1.88...v0.1.89) - 2026-06-08
+
+### Other
+
+- dependabot do monthly update
+
 ## [0.1.88](https://github.com/koyeung/colors-by-example/compare/v0.1.87...v0.1.88) - 2026-06-04
 
 ### Other
