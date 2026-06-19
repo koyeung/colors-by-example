@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.91](https://github.com/koyeung/colors-by-example/compare/v0.1.90...v0.1.91) - 2026-06-19
+
+### Other
+
+- pinact cooldown 7 days
+
 ## [0.1.90](https://github.com/koyeung/colors-by-example/compare/v0.1.89...v0.1.90) - 2026-06-08
 
 ### Other
