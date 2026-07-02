@@ -19,7 +19,7 @@ description = "Pick ansi-256 colors by examples"
 ignored = ["approx"]  # used in cargo doc
 
 [dependencies]
-anyhow = "1.0.102"
+anyhow = "1.0.103"
 approx = "0.5.1"
 clap = { version = "4.6.1", features = ["derive"] }
 env_logger = "0.11.10"
